@@ -1,0 +1,22 @@
+<div class="container-fluid" style="margin:0px">
+
+  <center>
+    <h2 class="form-signin-heading wrapper">Edit Room details for <%= @room.name %> in <%=@building.name %> </h2>
+  </center>
+  <div class="wrapper" >
+  </div>
+
+
+  <%= form_tag({controller: "admin", action: "save_room_changes"}, method: "post", class: "form-signin") do %>
+
+      <h2 class="form-signin-heading"> Please new room details </h2>
+      <%= hidden_field_tag "building_id", @building.id%>
+      <%= hidden_field_tag "room_id", @room.id %>
+      <%= text_field_tag(:room_name, @room.name, class: "form-control") %>
+      <%= select_tag 'room_type', options_from_collection_for_select(@room_types,'id', 'size'), {class: 'form-control'} %>
+      <br>
+      <%= submit_tag("Apply Changes", :class => "btn btn-lg btn-primary btn-block") %>
+
+  <% end %>
+
+</div>

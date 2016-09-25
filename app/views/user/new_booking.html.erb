@@ -1,0 +1,21 @@
+
+<div class="filler"></div>
+
+<%= form_tag({controller: "user", action: "add_booking"}, method: "post", class: "form-signin") do %>
+
+    <h3 class="form-signin-heading">Create a new booking </h3>
+
+    <h3> <%= @userId.first_name + " " + @userId.last_name %> </h3>
+    <h3> Room: <%= @room.name %> </h3>
+    <h3> Date: <%= @day %> </h3>
+    <h3> Time: <%= @util.friendly_hour(@from) %> to <%= @util.friendly_hour(@from.to_i+2) %> </h3>
+    <div class="form-group" >
+      <%= hidden_field_tag "room", @room.id %>
+      <%= hidden_field_tag "day", @day %>
+      <%= hidden_field_tag "from", @from %>
+      <%= text_field_tag("attendees", nil, placeholder:"Attendees emailIds (comma-delimited)", class: "form-control") %>
+
+    </div>
+    <%= submit_tag("Create Booking", :class => "btn btn-lg btn-primary btn-block") %>
+
+<% end %>

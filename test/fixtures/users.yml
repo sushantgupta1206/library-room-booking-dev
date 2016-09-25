@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  emailId: MyString
+  is_admin: false
+  is_preconfigured: false
+
+two:
+  emailId: MyString
+  is_admin: false
+  is_preconfigured: false

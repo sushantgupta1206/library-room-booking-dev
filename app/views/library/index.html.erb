@@ -1,0 +1,23 @@
+<div class="container-fluid" style="margin:0px">
+
+<center>
+  <h2 class="form-signin-heading wrapper">Library-room Booking App</h2>
+  </center>
+  <div class="wrapper" >
+    </div>
+
+    <div class="flash"> <%= flash[:error] %> </div>
+    <%= form_tag({controller: "library", action: "login"}, method: "post", class: "form-signin") do %>
+
+        <h2 class="form-signin-heading">Please login</h2>
+
+        <%= email_field_tag(:id, nil, placeHolder: "Email Address", class: "form-control") %>
+        <br>
+        <%= password_field_tag(:password, nil, placeHolder: "Password", class: "form-control") %>
+        <br>
+        <%= submit_tag("Login", :class => "btn btn-lg btn-primary btn-block") %>
+
+        <a href="/signup"> Signup</a>
+    <% end %>
+
+</div>
