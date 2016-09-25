@@ -9,6 +9,7 @@ default: &default
   host: localhost
   username: root
   password: mysql
+  DATABASE_URL: mysql://bf2b585135d6a2:d75bd6ae@us-cdbr-iron-east-04.cleardb.net/heroku_3dc0ed9b64a8dc0?reconnect=true  
 
 development:
   <<: *default
