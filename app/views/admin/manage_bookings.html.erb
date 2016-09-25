@@ -1,0 +1,101 @@
+<div class="container-fluid" style="margin:0px">
+<a href="/admin/logout/"> <button class='btn btn-primary pull-right'>Logout </button> </a>
+<div class="filler">
+  <h2> <center> Welcome to  Library-room booking app</center> </h2>
+  <a href="/admin/edit_profile/"> <h3> <%= @userId.first_name + " " + @userId.last_name %></a> </h3>
+</div>
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link " href="/admin/home"> Home </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/admin/manage_admins">Manage Admins </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/admin/manage_rooms"> Manage Rooms </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/admin/manage_users">Manage Library Users</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="/admin/manage_bookings">Manage Bookings</a>
+  </li>
+
+</ul>
+
+
+<div class="filler"/>
+
+<% @ListOfBuildings.each do |building| %>
+    <div class="filler" />
+    <h2>
+    <%= building.name %>
+    </h2>
+    <% rooms = RoomService.find_all_in_building(building) %>
+    <% rooms.each do |room| %>
+        <h3> <center>
+          <%= room.name %>
+        </center></h3>
+        <table class="table">
+          <thead>
+          <th class="table-info"> Date</th>
+          <% (8..18).each do |t| %>
+              <th class="table-info">
+                <%= case t
+                      when 8..11
+                        t.to_s+"am"
+                      when 12
+                        t.to_s+"noon"
+                      else
+                        (t-12).to_s+"pm"
+                    end %>
+              </th>
+          <% end %>
+          </thead>
+
+          <tbody>
+
+          <% (0..6).each do |i| %>
+              <% day = Time.new.to_date + i %>
+              <tr>
+                <td class="table-warning"> <%= day.month.to_s+"/"+day.mday.to_s+"/"+day.year.to_s %> </td>
+
+                <% (8..18).each do |t| %>
+                    <% time_slot = room.name+":"+day.to_s+":"+t.to_s %>
+                    <% next_time_slot = room.name+":"+day.to_s+":"+(t+1).to_s %>
+                    <% if @BookingList[time_slot] != nil %>
+                        <td class="table-danger"> Booked
+                          <% if !@util.past?(day,t) %>
+                          <a href="/admin/delete_booking/<%=@BookingList[time_slot].id%>">
+                            <i class="fa fa-times fa-fw"></i>
+                            </a>
+                              <%end%>
+                        </td>
+                        <% @prev_booking = true %>
+                        <% @user = @BookingList[time_slot].user%>
+                    <% else %>
+                        <% if @prev_booking == true %>
+                            <td class="table-danger">
+                            <%= @user.first_name + " " + @user.last_name %>
+                            </td>
+                        <% else %>
+                            <td class="table-success"> Free
+                            <% if @BookingList[next_time_slot] == nil && t != 18 && !@util.past?(day,t)%>
+                                <a href="/admin/create_booking/<%=time_slot%>">
+                                  <i class="fa fa-book fa-fw"></i>
+                                </a>
+                               <% end %>
+                            </td>
+                        <% end %>
+                        <% @prev_booking = false %>
+                    <% end %>
+                <% end %>
+              </tr>
+          <% end %>
+          </tbody>
+
+        </table>
+    <% end %>
+<% end %>
+</div>

@@ -1,0 +1,44 @@
+<div class="container-fluid" style="margin:0px">
+<a href="/admin/logout/"> <button class='btn btn-primary pull-right'>Logout </button> </a>
+
+<div class="filler">
+  <h2> <center> Welcome to the Library-room booking app</center> </h2>
+  <a href="/user/edit_profile/"> <h3> <%= @userId.first_name + " " + @userId.last_name %></a> </h3>
+</div>
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="/admin/home"> Home </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/admin/manage_admins">Manage Admins </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/admin/manage_rooms"> Manage Rooms </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/admin/manage_users">Manage Library Users</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/admin/manage_bookings">Manage Bookings</a>
+  </li>
+
+</ul>
+
+
+<div class="flash"> <%= flash[:error] %> </div>
+
+<a href="/admin/edit_profile"> Edit Profile </a>
+
+<br>
+There are <%= @ListOfRooms.size %> rooms.
+<ul>
+  <% @RoomList.each do |item| %>
+      Building Name : <%= item[0].name %>
+      <br>
+      <% item[1].each do |room| %>
+          <li> <%= room.name %> </li>
+      <% end %>
+  <% end %>
+</ul>
+</div>

@@ -1,0 +1,21 @@
+<div class="container-fluid" style="margin:0px">
+
+  <center>
+    <h2 class="form-signin-heading wrapper">Add a Room in <%=@building.name %> </h2>
+  </center>
+  <div class="wrapper" >
+  </div>
+
+
+  <%= form_tag({controller: "admin", action: "new_room"}, method: "post", class: "form-signin") do %>
+
+      <h2 class="form-signin-heading"> Please new room details </h2>
+      <%= hidden_field_tag "building_id", @building.id%>
+      <%= text_field_tag(:room_name, nil, placeHolder: "Room Name", class: "form-control") %>
+      <%= select_tag 'room_type', options_from_collection_for_select(@room_types,'id', 'size'), {class: 'form-control'} %>
+      <br>
+      <%= submit_tag("Add Room", :class => "btn btn-lg btn-primary btn-block") %>
+
+  <% end %>
+
+</div>

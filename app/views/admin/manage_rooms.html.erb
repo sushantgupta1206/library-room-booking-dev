@@ -1,0 +1,66 @@
+<div class="container-fluid" style="margin:0px">
+<a href="/admin/logout/"> <button class='btn btn-primary pull-right'>Logout </button> </a>
+
+
+<div class="filler">
+  <h2> <center> Welcome to  Library-room booking app</center> </h2>
+  <a href="/admin/edit_profile/"> <h3> <%= @userId.first_name + " " + @userId.last_name %></a> </h3>
+</div>
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link " href="/admin/home"> Home </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/admin/manage_admins">Manage Admins </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="/admin/manage_rooms"> Manage Rooms </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/admin/manage_users">Manage Library Users</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/admin/manage_bookings">Manage Bookings</a>
+  </li>
+</ul>
+
+
+<div class="filler"/>
+<div class="flash"> <%= flash[:error] %> </div>
+
+<% @ListOfBuildings.each do |building| %>
+    <div class="filler"/>
+    <h2>
+      <%= building.name %>
+    </h2>
+    <h3> <a href="create_room/<%=building.id%>"> <i class="fa fa-plus-circle" aria-hidden="true"> </i> </a> </h3>
+    <% rooms = RoomService.find_all_in_building(building) %>
+    <table class="table table-striped">
+      <thead>
+      <th> Room Name</th>
+      <th> Room Size</th>
+      <th> Status</th>
+      </thead>
+      <tbody>
+      <% rooms.each do |room| %>
+          <tr>
+            <% num_bookings = BookingService.current_bookings_for_room(room).length %>
+            <td><%= room.name %>  <a href="edit_room/<%=room.id%>"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a> </td>
+            <td> <%= room.room_type.size %> </td>
+            <% if num_bookings > 0 %>
+                <td> Booked (<%= num_bookings %>)
+                <a href="show_room_bookings/<%=room.id%>"><i class="fa fa-book" aria-hidden="true"></i> </a>
+                </td>
+            <% else %>
+                <td> Available (No bookings)
+                <a href="delete_room/<%=room.id%>"> <i class="fa fa-times" aria-hidden="true"></i></a>
+                </td>
+                </tr>
+            <% end %>
+
+      <% end %>
+      </tbody>
+    </table>
+<% end %>
+</div>
