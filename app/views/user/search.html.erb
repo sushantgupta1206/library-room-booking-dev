@@ -26,7 +26,7 @@
         <%= hidden_field_tag "id", @userId.emailId %>
         <br>
         <%= text_field_tag(:room_number, nil, placeHolder: @search_string , class: "form-control") %>
-        <%= select_tag 'building', options_from_collection_for_select(@buildingList,'id', 'name'), {class: 'form-control'} %>
+        <%= select_tag ('building', insert(0, "Choose location"));  options_from_collection_for_select(@buildingList,'id', 'name'); {class: 'form-control'} %>
         <%= select_tag 'room_type', options_from_collection_for_select(@roomTypes,'id', 'size'), {class: 'form-control'} %>
       <br>
 
