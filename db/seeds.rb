@@ -32,7 +32,7 @@ require 'services/common.rb'
 #RoomService.save(room2)
 #RoomService.save(room3)
 
-admin = UserService.create_admin("admin@ncsu.edu", "NCSU", "Admin", "admin01", "admin01");
-admin.is_preconfigured = true;
+admin = UserService.create_admin("admin@ncsu.edu", "NCSU", "Admin", "admin01", "admin01","True");
+#admin.is_preconfigured = true;
 admin.save;
 
