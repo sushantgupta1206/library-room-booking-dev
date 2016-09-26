@@ -32,7 +32,7 @@ RoomService.save(room1)
 RoomService.save(room2)
 RoomService.save(room3)
 
-admin = UserService.create_admin("admin@ncsu.edu", "NCSU", "Admin", "admin01", "admin01");
+admin = UserService.create_admin("admin2@ncsu.edu", "NCSU", "Admin", "admin01", "admin01");
 admin.is_preconfigured = true;
 admin.save
 
