@@ -15,7 +15,7 @@
     <%= hidden_field_tag "from", @from %>
     <%= select_tag 'user', options_from_collection_for_select(@users,'id', 'emailId'), {class: 'form-control'} %>
 
-    <%= text_field_tag("attendees", nil, placeholder:"Attendees emailIds (comma-delimited)", class: "form-control") %>
+    <%= text_field_tag("attendees", nil, placeholder:"Attendees email IDs (comma-delimited)", class: "form-control") %>
 
   </div>
     <%= submit_tag("Create Booking", :class => "btn btn-lg btn-primary btn-block") %>

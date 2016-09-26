@@ -13,7 +13,7 @@
       <%= hidden_field_tag "room", @room.id %>
       <%= hidden_field_tag "day", @day %>
       <%= hidden_field_tag "from", @from %>
-      <%= text_field_tag("attendees", nil, placeholder:"Attendees emailIds (comma-delimited)", class: "form-control") %>
+      <%= text_field_tag("attendees", nil, placeholder:"Attendees email IDs (comma-delimited)", class: "form-control") %>
 
     </div>
     <%= submit_tag("Create Booking", :class => "btn btn-lg btn-primary btn-block") %>
