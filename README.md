@@ -19,6 +19,7 @@ To run, download this folder, navigate to it and run
 This app is deployed at: https://nameless-journey-10600.herokuapp.com/.
 
 Default credentials: admin@ncsu.edu
+
 Password: admin01
 
 To use:
