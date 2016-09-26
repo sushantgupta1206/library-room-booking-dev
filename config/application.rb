@@ -5,7 +5,7 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-DISABLE_DATABASE_ENVIRONMENT_CHECK=1
+ActiveRecord::Base.protected_environments << nil
 module Library
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
