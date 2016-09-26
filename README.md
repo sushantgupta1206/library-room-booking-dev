@@ -12,9 +12,12 @@ To run, download this folder, navigate to it and run
 
 * rake db:migrate
 
-* rake db:seed
+* rake db:seed #replace seeds.rb by seeds2.rb
 
 * rails server
+
+If you are running this app on your local machine, replace seeds.rb by seeds2.rb before running rake db:seed.
+Credentials are available in seeds.rb.
 
 This app is deployed at: https://nameless-journey-10600.herokuapp.com/
 
