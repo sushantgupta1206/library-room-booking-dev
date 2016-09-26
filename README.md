@@ -1,24 +1,28 @@
-# README
+Software requirements:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version: 2.3.1
 
-Things you may want to cover:
+* Rails version: 5.0.0.1
 
-* Ruby version
+System dependencies: See gemfile
 
-* System dependencies
+To run, download this folder, navigate to it and run 
 
-* Configuration
+* bundle install
 
-* Database creation
+* rake db:migrate
 
-* Database initialization
+* rake db:seed
 
-* How to run the test suite
+* rails server
 
-* Services (job queues, cache servers, search engines, etc.)
+This app is deployed at: https://nameless-journey-10600.herokuapp.com/.
 
-* Deployment instructions
+Default credentials: admin@ncsu.edu
+Password: admin01
 
-* ...
+To use:
+Login as admin. Here you can create new admins, rooms and library members. As admin, you can book rooms for other members as well. You can also cancel bookings, provided the booking start time has not passed. 
+You may create users as admin or sign up from the login page to create regular library users who can book rooms for themselves. As a user, you can view your own booking history and cancel booking, provided the start time has not elapsed. All bookings can be done for two hour slots only. This was assumed based on the requirements.
+
+To test: rake test
