@@ -25,7 +25,7 @@ Default credentials: admin2@ncsu.edu
 
 Password: admin01
 
-NOTE TO REVIEWERS: PLEASE DO NOT CHANGE THE DEFAULT ADMIN PASSWORD. If you are reviewing this app and cannot login as admin, it is because another reviewer has changed the password. Please contact me at <github username> at <gmail> dot <com> to make a new admin so you can login.
+NOTE TO REVIEWERS: PLEASE DO NOT CHANGE THE DEFAULT ADMIN PASSWORD. If you are reviewing this app and cannot login as admin, it is because another reviewer has changed the password. Please contact me at [github username] at [gmail] dot [com] to make a new admin so you can login.
 
 Number of reviewers inconvenienced by password changes: 1
 
