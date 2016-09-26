@@ -43,7 +43,7 @@ library_user2.save
 
 
 booking = BookingService.create_booking(room1, Date.new(2016,9,26),10,12,library_user,"arvind@hudli.com,arvind@hudli.net")
-booking2 = BookingService.create_booking(room1, Date.new(2016,9,27),14,16,library_user,"arvind@hudli.com,arvind@hudli.net")
-booking3 = BookingService.create_booking(room1, Date.new(2016,9,27),15,17,library_user,"arvind@hudli.com,arvind@hudli.net")
-booking4 = BookingService.create_booking(room1, Date.new(2016,9,26),17,19,library_user,"arvind@hudli.com,arvind@hudli.net",true)
-booking5 = BookingService.create_booking(room1, Date.new(2016,9,27),12,14, library_user2,"arvind@hudli.net,arvind@hudli.com")
+#booking2 = BookingService.create_booking(room1, Date.new(2016,9,27),14,16,library_user,"arvind@hudli.com,arvind@hudli.net")
+#booking3 = BookingService.create_booking(room1, Date.new(2016,9,27),15,17,library_user,"arvind@hudli.com,arvind@hudli.net")
+#booking4 = BookingService.create_booking(room1, Date.new(2016,9,26),17,19,library_user,"arvind@hudli.com,arvind@hudli.net",true)
+#booking5 = BookingService.create_booking(room1, Date.new(2016,9,27),12,14, library_user2,"arvind@hudli.net,arvind@hudli.com")
