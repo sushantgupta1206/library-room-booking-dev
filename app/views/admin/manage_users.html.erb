@@ -1,61 +1,61 @@
 <div class="container-fluid" style="margin:0px">
-  <a href="/admin/logout/"> <button class='btn btn-primary pull-right'>Logout </button> </a>
-  <div class="filler">
-    <h2> <center> Welcome to the Library-room booking app</center> </h2>
-    <h3> <%= @userId.first_name + " " + @userId.last_name %>  </h3><a href="/user/edit_profile/"> Edit profile </a> </div>
+<a href="/admin/logout/"> <button class='btn btn-primary pull-right'>Logout </button> </a>
+<div class="filler">
+  <h2> <center> Welcome to  Library-room booking app</center> </h2>
+  <a href="/admin/edit_profile/"> <h3> <%= @userId.first_name + " " + @userId.last_name %></a> </h3>
+</div>
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link " href="/admin/home"> Home </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/admin/manage_admins">Manage Admins </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/admin/manage_rooms"> Manage Rooms </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="/admin/manage_users">Manage Library Users</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/admin/manage_bookings">Manage Bookings</a>
+  </li>
+
+</ul>
 
 
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link " href="/admin/home"> Home </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/admin/manage_admins">Manage Admins </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/admin/manage_rooms"> Manage Rooms </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link active" href="/admin/manage_users">Manage Library Users</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/admin/manage_bookings">Manage Bookings</a>
-    </li>
+<div class="filler"/>
 
-  </ul>
+<h2> Library Users </h2>
+<h3> <a href="create_user"> <i class="fa fa-plus-circle" aria-hidden="true"> </i> </a> </h3>
 
+<table class="table table-striped">
+  <thead>
 
-  <div class="filler"/>
+  <th class="table-info"> EmailId</th>
+  <th class="table-info"> First Name</th>
+  <th class="table-info"> Last Name</th>
+  </thead>
 
-  <h2> Library Users </h2>
-  <h3> <a href="create_user"> <i class="fa fa-plus-circle" aria-hidden="true"> </i> </a> </h3>
+  <tbody>
+  <% @users.each do |u| %>
+      <tr>
+        <td> <%= u.emailId %> </td>
+        <td> <%= u.first_name %></td>
+        <td> <%= u.last_name %> </td>
+        <td>
+          <a href="edit_user/<%=u.id%>"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a><br>
 
-  <table class="table table-striped">
-    <thead>
+            <a href="delete_user/<%=u.id%>"> <i class="fa fa-times" aria-hidden="true"></i></a> <br>
 
-    <th class="table-info"> EmailId</th>
-    <th class="table-info"> First Name</th>
-    <th class="table-info"> Last Name</th>
-    </thead>
+              <a href="show_user_bookings/<%=u.id%>"><i class="fa fa-book" aria-hidden="true"></i> </a>
 
-    <tbody>
-    <% @users.each do |u| %>
-        <tr>
-          <td> <%= u.emailId %> </td>
-          <td> <%= u.first_name %></td>
-          <td> <%= u.last_name %> </td>
-          <td>
-            <a href="edit_user/<%=u.id%>"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a><br>
-            <% if BookingService.all_bookings_for_user(u).length == 0 %>
-                <a href="delete_user/<%=u.id%>"> <i class="fa fa-times" aria-hidden="true"></i></a>
-            <% else %>
-                <a href="show_user_bookings/<%=u.id%>"><i class="fa fa-book" aria-hidden="true"></i> </a>
-            <%end%>
-          </td>
-        </tr>
+        </td>
+      </tr>
 
-    <% end %>
-    </tbody>
+  <% end %>
+  </tbody>
 
-  </table>
+</table>
 </div>

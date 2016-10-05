@@ -33,7 +33,7 @@ class LibraryControllerControllerTest < ActionDispatch::IntegrationTest
     get "/"
     post "/library/login", params: {id: "lib@lib.edu", password: "lib02"}
     assert_equal 200, status
-    assert_equal 'Login failed! Please check your email ID and password.',flash[:error]
+    assert_equal 'Login failed!',flash[:error]
   end
 
   def test_sign_up
@@ -49,7 +49,7 @@ class LibraryControllerControllerTest < ActionDispatch::IntegrationTest
     get "/signup"
 
     post "/library/new_user", params: {id: "lib2@lib.edu", password:"lib02", cpassword:"lib0", fname:"First", lname: "Last"}
-    assert_equal "Passwords do not match!", flash[:error]
+    assert_equal "Password and Confirm Password do not match!", flash[:error]
 
   end
 end

@@ -1,46 +1,46 @@
 <div class="container-fluid" style="margin:0px">
-  <a href="/admin/logout/"> <button class='btn btn-primary pull-right'>Logout </button> </a>
+<a href="/admin/logout/"> <button class='btn btn-primary pull-right'>Logout </button> </a>
 
-  <div class="filler">
-    <h2> <center> Welcome to the Library-room booking app</center> </h2>
-    <h3> <%= @userId.first_name + " " + @userId.last_name %>  </h3><a href="/user/edit_profile/"> Edit profile </a> </div>
+<div class="filler">
+  <h2> <center> Welcome to  Library-room booking app</center> </h2>
+  <a href="/user/edit_profile/"> <h3> <%= @userId.first_name + " " + @userId.last_name %></a> </h3> </div>
 
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link " href="/user/home"> Home </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link active " href="/user/search"> Search Room </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/user/manage_bookings">Manage Bookings</a>
-    </li>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link " href="/user/home"> Home </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active " href="/user/search"> Search Room </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/user/manage_bookings">Manage Bookings</a>
+  </li>
 
-  </ul>
+</ul>
 
 
-  <div class="filler" />
+<div class="filler" />
 
-  <%= form_tag({controller: "user", action: "search_results"}, method: "post", class: "form-signin") do %>
+    <%= form_tag({controller: "user", action: "search_results"}, method: "post", class: "form-signin") do %>
 
-      <%= hidden_field_tag "id", @userId.emailId %>
+        <%= hidden_field_tag "id", @userId.emailId %>
+        <br>
+        <%= text_field_tag(:room_number, nil, placeHolder: @search_string , class: "form-control") %>
+        <%= select_tag 'building', options_from_collection_for_select(@buildingList,'id', 'name'), {class: 'form-control'} %>
+        <%= select_tag 'room_type', options_from_collection_for_select(@roomTypes,'id', 'size'), {class: 'form-control'} %>
       <br>
-      Room number/name (optional): <%= text_field_tag(:room_number, nil, placeHolder: @search_string + " or name" , class: "form-control") %>
-      Location: <%= select_tag 'building', options_from_collection_for_select(@buildingList,'id', 'name'), {class: 'form-control'} %>
-      Size: <%= select_tag 'room_type', options_from_collection_for_select(@roomTypes,'id', 'size'), {class: 'form-control'} %>
-      <br>
 
-      <%= submit_tag("Search", :class => "btn btn-lg btn-primary btn-block") %>
+        <%= submit_tag("Search", :class => "btn btn-lg btn-primary btn-block") %>
 
-  <% end %>
-</div>
+    <% end %>
+  </div>
 
 <% if @search_results != nil %>
-    <% if @search_results[1].length != 0 %>
+<% if @search_results[1].length != 0 %>
 
-        <h2> <%= @search_results[0] %></h2>
-        <hr>
-        <% rooms = @search_results[1] %>
+    <h2> <%= @search_results[0] %></h2>
+    <hr>
+    <% rooms = @search_results[1] %>
 
         <table class="table tablestriped">
           <thead>
@@ -49,32 +49,32 @@
           <th class="table-info"> Booking Status</th>
           </thead>
           <tbody>
-          <%rooms.each do |r| %>
+    <%rooms.each do |r| %>
 
 
-              <tr>
-                <td> <%=r["name"]%>
-                  <a href="create_booking/<%=r["id"]%>"><i class="fa fa-book" aria-hidden="true"></i> </a>
-                </td>
-                <td> <%= RoomType.find(r["room_type_id"]).size %>
+          <tr>
+             <td> <%=r["name"]%>
+                <a href="create_booking/<%=r["id"]%>"><i class="fa fa-book" aria-hidden="true"></i> </a>
+            </td>
+             <td> <%= RoomType.find(r["room_type_id"]).size %>
 
-                </td>
-                <% num_bookings = BookingService.current_bookings_for_room(Room.find(r["id"])).length %>
+             </td>
+             <% num_bookings = BookingService.current_bookings_for_room(Room.find(r["id"])).length %>
 
-                <td>
-                  <% if num_bookings > 0 %>
-                      Booked(<%=num_bookings%>)
+            <td>
+              <% if num_bookings > 0 %>
+               Booked(<%=num_bookings%>)
                   <%else %>
-                      Available
+                Available
                   <% end %>
-                </td>
-              </tr>
+            </td>
+          </tr>
 
-          <% end %>
+        <% end %>
           </tbody>
         </table>
     <% else %>
-        <div class="flash"> <%= flash[:error] %> </div>
-    <% end %>
+    <div class="flash"> <%= flash[:error] %> </div>
+<% end %>
 <% end %>
 </div>

@@ -3,7 +3,7 @@
 
   <div class="filler">
     <h2> <center> Welcome to  Library-room booking app</center> </h2>
-    <h3> <%= @userId.first_name + " " + @userId.last_name %>  </h3><a href="/user/edit_profile/"> Edit profile </a> </div>
+    <a href="/user/edit_profile/"> <h3> <%= @userId.first_name + " " + @userId.last_name %></a> </h3> </div>
 
   <ul class="nav nav-tabs">
     <li class="nav-item">
@@ -51,8 +51,8 @@
         <td class="table-warning"> <%= day.month.to_s+"/"+day.mday.to_s+"/"+day.year.to_s %> </td>
 
         <% (8..18).each do |t| %>
-            <% time_slot = @room.name+":"+day.to_s+":"+t.to_s %>
-            <% next_time_slot = @room.name+":"+day.to_s+":"+(t+1).to_s %>
+            <% time_slot = @room.id.to_s+":"+day.to_s+":"+t.to_s %>
+            <% next_time_slot = @room.id.to_s+":"+day.to_s+":"+(t+1).to_s %>
             <% if @BookingList[time_slot] != nil %>
                 <td class="table-danger"> Booked
                   <% if !@util.past?(day,t) && @BookingList[time_slot].user.id == @userId.id %> <!-- can't delete past or other's bookings !-->
@@ -71,7 +71,7 @@
                 <% else %>
                     <td class="table-success"> Free
                       <% if @BookingList[next_time_slot] == nil && t != 18 && !@util.past?(day,t) &&
-                          !BookingService.booking_exists?(@userId,day,t)%>  <!-- can't have two bookings at same time !-->
+                                          !BookingService.booking_exists?(@userId,day,t)%>  <!-- can't have two bookings at same time !-->
                           <a href="/user/new_booking/<%=time_slot%>">
                             <i class="fa fa-book fa-fw"></i>
                           </a>

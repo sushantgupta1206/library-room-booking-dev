@@ -119,7 +119,7 @@ class AdminController < ApplicationController
     if (pw == cpw)
       UserService.change_password(emailId,pw,cpw)
     else
-      flash[:error] = "Password and Confirm Password do not match"
+      flash[:error] = "Password and Change Password do not match"
     end
     user.save
     redirect_to action: redirect_method
