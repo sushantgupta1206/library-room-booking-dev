@@ -5,6 +5,7 @@
   <a href="/admin/edit_profile/"> <h3> <%= @userId.first_name + " " + @userId.last_name %></a> </h3>
 </div>
 
+  <%- # Use Bootstrap nav-tabs for navigation links -%>
 <ul class="nav nav-tabs">
   <li class="nav-item">
     <a class="nav-link " href="/admin/home"> Home </a>
@@ -26,6 +27,14 @@
 
 
 <div class="filler"/>
+
+  <% if false %>
+      For each building show all bookings in each room
+      Next to each booking include a button to delete it
+      For each free time slot include a button to creat a booking
+      Note since each booking is for 2 hours, the immediate preceding hour
+      of a booking will not be available for booking though it is free
+  <% end %>
 
 <% @ListOfBuildings.each do |building| %>
     <div class="filler" />
@@ -81,6 +90,8 @@
                             </td>
                         <% else %>
                             <td class="table-success"> Free
+                              <% # Make available for booking only if the next slot is free and is in future and there are %>
+                              <% #  users in the system %>
                             <% if @BookingList[next_time_slot] == nil && t != 18 && !@util.past?(day,t) && @num_users > 0%>
                                 <a href="/admin/create_booking/<%=time_slot%>">
                                   <i class="fa fa-book fa-fw"></i>

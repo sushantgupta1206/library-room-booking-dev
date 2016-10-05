@@ -6,7 +6,11 @@
   <div class="wrapper" >
   </div>
 
+  <%- # Form for creating an admin object. -%>
+  <%- # Display errors, if any -%>
   <div class="flash"> <%= flash[:error] %> </div>
+
+
   <%= form_tag({controller: "admin", action: "new_admin"}, method: "post", class: "form-signin") do %>
 
          <h2 class="form-signin-heading"> Please provide new admin details </h2>

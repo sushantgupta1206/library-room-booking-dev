@@ -1,6 +1,7 @@
 require 'test_helper'
 require 'services/common.rb'
 
+# Testcase for testing LibraryController
 class LibraryControllerControllerTest < ActionDispatch::IntegrationTest
 
   setup do

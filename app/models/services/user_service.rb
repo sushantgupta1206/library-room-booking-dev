@@ -1,5 +1,8 @@
+# Service class for user CRUD operations
+
 class UserService
 
+  # Create an admin object. Enforce uniqueness of emailId
   def UserService.create_admin(emailId, fname, lname, pw, confirm_pw)
     if (User.find_by(emailId: emailId))
       return nil
@@ -16,10 +19,13 @@ class UserService
     end
   end
 
+  # Create a library user. Enforce uniqueness of emailId
   def UserService.create_library_user(emailId, fname,  lname, pw, confirm_pw)
     if (User.find_by(emailId: emailId))
       return nil
     end
+    # User uses secure password and bcrypt. Both passwd and confirm passwd needed
+    # Encrypted passwd stored in the DB
     if (pw == confirm_pw)
       user = User.new(password: pw, password_confirmation: confirm_pw)
       user.emailId = emailId;
@@ -49,6 +55,9 @@ class UserService
       user.save
     end
   end
+
+  # User object uses secure password and bcrypt gem
+  # Authentication checks equality of encrypted passwd
   def UserService.authenticate(id, pw)
     return false if User.find_by(emailId:id) == nil
     if User.find_by(emailId:id).try(:authenticate, pw) == false

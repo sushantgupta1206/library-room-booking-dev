@@ -1,11 +1,14 @@
 require 'test_helper'
 require 'services/common.rb'
 
+# Testcase for testing User model object
+
 class UserTest < ActiveSupport::TestCase
 
   setup do
     user = UserService.create_library_user("lib@lib.edu", "Library", "User", "lib01", "lib01")
   end
+
   test "creation of admin user" do
     admin = UserService.create_admin("admin@admin.edu", "Admin", "Admin", "admin01", "admin01")
     assert User.find_by(emailId: "admin@admin.edu").is_admin = true

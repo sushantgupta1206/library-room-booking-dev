@@ -1,4 +1,9 @@
+# A service class for basic operations for
+# a building domain object. Buildings cannot
+# be deleted!
+
 class BuildingService
+
 
   def BuildingService.create(name)
     b = Building.new

@@ -1,4 +1,6 @@
 
+<!-- Form for creating a booking -->
+
 <div class="filler"></div>
 
   <%= form_tag({controller: "admin", action: "add_booking"}, method: "post", class: "form-signin") do %>
@@ -14,6 +16,8 @@
     <%= hidden_field_tag "day", @day %>
     <%= hidden_field_tag "from", @from %>
     <%= select_tag 'user', options_from_collection_for_select(@users,'id', 'emailId'), {class: 'form-control'} %>
+
+    <!-- Attendees list is optional. Extra credit  -->
 
     <%= text_field_tag("attendees", nil, placeholder:"Attendees emailIds (comma-delimited)", class: "form-control") %>
 

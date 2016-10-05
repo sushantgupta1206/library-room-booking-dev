@@ -58,6 +58,7 @@
       <td> <%= @util.friendly_hour(b.end_time) %> </td>
       <td> <%= b.attendees%> </td>
       <td> <%= b.created_at.to_s.split[0] %> </td>
+      <%# Show delete links only for future bookings %>
       <td> <% if ! @util.past?(b.day,b.start_time) %>
             <a href="/admin/delete_a_user_booking/<%=b.id%>"> <i class="fa fa-times" aria-hidden="true"></i></a>
         <% end %>

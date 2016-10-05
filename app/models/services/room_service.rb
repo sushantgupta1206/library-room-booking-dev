@@ -1,3 +1,5 @@
+# Service class for managing rooms.
+
 class RoomService
 
   def RoomService.create(name, bldg, room_type)

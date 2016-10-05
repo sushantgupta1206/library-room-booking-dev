@@ -6,7 +6,10 @@
   <div class="wrapper" >
   </div>
 
+  <!-- Display errors if any. Such as duplicate ids, passwords not matching, etc. -->
   <div class="flash"> <%= flash[:error] %> </div>
+
+  <!-- Signup form for user -->
   <%= form_tag({controller: "admin", action: "new_user"}, method: "post", class: "form-signin") do %>
 
       <h2 class="form-signin-heading"> Please provide user details </h2>

@@ -10,6 +10,7 @@ class UserController < ApplicationController
 
   # The check_login before_action filter method checks for
   # valid sessions and URL tampering (URL rewrites by user in the browser's address bar)
+  # Tampering is detected if referrer URL is nil
   # If there is no valid session, the user is redirected to login page.
   # If URL is tampered, the user is redirected to page with URL tampering warning
 
@@ -189,7 +190,9 @@ class UserController < ApplicationController
     # notify each user using the action mailer controller.
     if (attendees != "")
       puts "sent email to #{attendees}"
-      LibraryMailer.send_email(attendees,@booking,@userId).deliver
+      attendeeList = attendees.split(",")
+      attendeeList.each {|a| LibraryMailer.send_email(a,@booking,@userId).deliver}
+
     end
     redirect_to  action: "create_booking" ,:id => params[:room]
   end

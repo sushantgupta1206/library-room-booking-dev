@@ -1,3 +1,7 @@
+# A service class to manage room types. RoomTypes
+# are created when databse is seeded with initial data
+# No UI to create room types
+
 class RoomTypeService
 
 

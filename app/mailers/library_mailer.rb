@@ -3,6 +3,11 @@ class LibraryMailer < ActionMailer::Base
 
   default from: "admin@ncsu.edu"
 
+  # A standard action to send email. The
+  # attendees list is a comma-separated list of
+  # email ids. We loop through  the attendee list
+  # and send mail using the action mailer gem
+
   def send_email(attendees, booking,user)
       attendeeList = attendees.split(",")
       util = Util.new
