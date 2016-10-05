@@ -10,8 +10,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/LICENSE" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/bfg-1.12.13.jar" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/db/seeds2.rb" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/database.yml" afterPath="$PROJECT_DIR$/config/database.yml" />
     </list>
     <ignored path="library.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -252,12 +250,12 @@
       <updated>1475708151233</updated>
       <workItem from="1475708153234" duration="10000" />
       <workItem from="1475708164176" duration="8000" />
-      <workItem from="1475708183700" duration="434000" />
+      <workItem from="1475708183700" duration="1012000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="452000" />
+    <option name="totallyTimeSpent" value="1030000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
