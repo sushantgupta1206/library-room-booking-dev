@@ -34,3 +34,15 @@ Login as admin. Here you can create new admins, rooms and library members. As ad
 You may create users as admin or sign up from the login page to create regular library users who can book rooms for themselves. As a user, you can view your own booking history and cancel booking, provided the start time has not elapsed. All bookings can be done for two hour slots only. This was assumed based on the requirements.
 
 To test: rake test
+
+Deleting a room with a booking:
+
+This is not possible in the app, as the delete button will not show for a room that has a booking.
+
+Deleting a user with a booking:
+
+This is not possible as the delete button does not show for a user with a booking. 
+
+For both these cases, you must first cancel all bookings for that room or user and then delete the room/user.
+
+To edit the details of the room, there is an icon next to the room name on the left side.

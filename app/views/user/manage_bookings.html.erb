@@ -1,9 +1,9 @@
 <div class="container-fluid" style="margin:0px">
-<a href="/admin/logout/"> <button class='btn btn-primary pull-right'>Logout </button> </a>
+  <a href="/admin/logout/"> <button class='btn btn-primary pull-right'>Logout </button> </a>
 
-<div class="filler">
-  <h2> <center> Welcome to  Library-room booking app</center> </h2>
-  <h3> <%= @userId.first_name + " " + @userId.last_name %>  </h3><a href="/user/edit_profile/"> Edit profile </a> </div>
+  <div class="filler">
+    <h2> <center> Welcome to the Library-room booking app</center> </h2>
+    <h3> <%= @userId.first_name + " " + @userId.last_name %>  </h3><a href="/user/edit_profile/"> Edit profile </a> </div>
 
   <ul class="nav nav-tabs">
     <li class="nav-item">
@@ -20,41 +20,41 @@
 
 
 
-<div class="filler" />
-<h3> <center> Booking List </center> </h3>
+  <div class="filler" />
+  <h3> <center> Booking List </center> </h3>
 
 
-<table class="table tablestriped">
-  <thead>
+  <table class="table tablestriped">
+    <thead>
 
-  <th class="table-info"> Building </th>
-  <th class="table-info"> Room Number </th>
-  <th class="table-info"> Date </th>
-  <th class="table-info"> Start-time </th>
-  <th class="table-info"> End-time </th>
-  <th class="table-info"> Attendees </th>
-  <th class="table-info"> Delete </th>
-  </thead>
+    <th class="table-info"> Building </th>
+    <th class="table-info"> Room Number </th>
+    <th class="table-info"> Date </th>
+    <th class="table-info"> Start-time </th>
+    <th class="table-info"> End-time </th>
+    <th class="table-info"> Attendees </th>
+    <th class="table-info"> Delete </th>
+    </thead>
 
-  <tbody>
-  <%@bookings.each do |b| %>
+    <tbody>
+    <%@bookings.each do |b| %>
 
-  <tr>
-    <td><%= Building.find(b.room.building.id).name %></td>
-    <td><%=b.room.name %> </td>
-    <td><%=b.day %> </td>
-    <td> <%=b.start_time %> </td>
-    <td> <%= b.end_time %> </td>
-    <td> <%= b.attendees %> </td>
-    <td>
-      <% if !@util.past?(b.day,b.start_time) %>
-          <a href="/user/delete_user_booking/<%=b.id%>">
-            <i class="fa fa-times fa-fw"></i>
-          </a>
-          <%end %>
-    </td>
-  </tr>
-  <%end %>
-  </tbody>
+        <tr>
+          <td><%= Building.find(b.room.building.id).name %></td>
+          <td><%=b.room.name %> </td>
+          <td><%=b.day %> </td>
+          <td> <%=b.start_time %> </td>
+          <td> <%= b.end_time %> </td>
+          <td> <%= b.attendees %> </td>
+          <td>
+            <% if !@util.past?(b.day,b.start_time) %>
+                <a href="/user/delete_user_booking/<%=b.id%>">
+                  <i class="fa fa-times fa-fw"></i>
+                </a>
+            <%end %>
+          </td>
+        </tr>
+    <%end %>
+    </tbody>
   </table>
 </div>

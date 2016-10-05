@@ -71,7 +71,7 @@
                 <% else %>
                     <td class="table-success"> Free
                       <% if @BookingList[next_time_slot] == nil && t != 18 && !@util.past?(day,t) &&
-                                          !BookingService.booking_exists?(@userId,day,t)%>  <!-- can't have two bookings at same time !-->
+                          !BookingService.booking_exists?(@userId,day,t)%>  <!-- can't have two bookings at same time !-->
                           <a href="/user/new_booking/<%=time_slot%>">
                             <i class="fa fa-book fa-fw"></i>
                           </a>

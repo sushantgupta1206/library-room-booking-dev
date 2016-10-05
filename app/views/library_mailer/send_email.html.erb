@@ -4,9 +4,11 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-<h2> <%= @user %></h2>
+
 <p>
-  A meeting has been scheduled.
+  <%= @user.email %>: <br>
+  <%= @who %> has scheduled a meeting on <%= @day %> at <%= @time %>. The meeting
+  room is <%= @place %>.
   See you there!
 </p>
 </body>

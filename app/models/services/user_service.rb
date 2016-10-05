@@ -6,7 +6,7 @@ class UserService
     end
     if (pw == confirm_pw)
       user = User.new(password: pw, password_confirmation: confirm_pw)
-      user.emailId = emailId
+      user.emailId = emailId;
       user.first_name = fname
       user.last_name = lname
       user.is_preconfigured = false
@@ -22,10 +22,10 @@ class UserService
     end
     if (pw == confirm_pw)
       user = User.new(password: pw, password_confirmation: confirm_pw)
-      user.emailId = emailId;
+      user.emailId = emailId
       user.first_name = fname
       user.last_name = lname
-      user.is_preconfigured = false;
+      user.is_preconfigured = false
       user.is_admin = false
       user.save
       user

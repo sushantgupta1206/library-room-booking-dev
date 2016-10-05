@@ -1,0 +1,34 @@
+<div class="container-fluid" style="margin:0px">
+  <a href="/admin/logout/"> <button class='btn btn-primary pull-right'>Logout </button> </a>
+
+  <div class="filler">
+    <h2> <center> Welcome to the Library-room booking app</center> </h2>
+    <h3> <%= @userId.first_name + " " + @userId.last_name %>  </h3><a href="/user/edit_profile/"> Edit profile </a> </div>
+
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" href="/admin/home"> Home </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/admin/manage_admins">Manage Admins </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/admin/manage_rooms"> Manage Rooms </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/admin/manage_users">Manage Library Users</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/admin/manage_bookings">Manage Bookings</a>
+    </li>
+
+  </ul>
+
+  <center>
+    <h2>
+      <font color="red">
+      Tampering URL is not allowed!
+        </font>
+    </h2>
+  </center>
+  </div>

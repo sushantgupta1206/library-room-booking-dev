@@ -1,10 +1,9 @@
 <div class="container-fluid" style="margin:0px">
 <a href="/admin/logout/"> <button class='btn btn-primary pull-right'>Logout </button> </a>
 
-<div class="filler">
-  <h2> <center> Welcome to the Library-room booking app</center> </h2>
-  <h3> <%= @userId.first_name + " " + @userId.last_name %> </h3> <a href="/user/edit_profile/"> Edit profile <br/></a>
-</div>
+  <div class="filler">
+    <h2> <center> Welcome to the Library-room booking app</center> </h2>
+    <h3> <%= @userId.first_name + " " + @userId.last_name %>  </h3><a href="/user/edit_profile/"> Edit profile </a> </div>
 
 <ul class="nav nav-tabs">
   <li class="nav-item">
@@ -27,6 +26,8 @@
 
 
 <div class="flash"> <%= flash[:error] %> </div>
+
+<a href="/admin/edit_profile"> Edit Profile </a>
 
 <br>
 There are <%= @ListOfRooms.size %> rooms.
