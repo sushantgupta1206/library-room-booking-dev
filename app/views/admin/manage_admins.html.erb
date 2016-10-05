@@ -1,67 +1,67 @@
 <div class="container-fluid" style="margin:0px">
-<a href="/admin/logout/">
-  <button class='btn btn-primary pull-right'>Logout</button>
-</a>
+  <a href="/admin/logout/">
+    <button class='btn btn-primary pull-right'>Logout</button>
+  </a>
 
 
-<div class="filler">
-  <h2> <center> Welcome to  Library-room booking app</center> </h2>
-  <h3> <%= @userId.first_name + " " + @userId.last_name %>  </h3><a href="/user/edit_profile/"> Edit profile </a> </div>
+  <div class="filler">
+    <h2> <center> Welcome to the Library-room booking app</center> </h2>
+    <h3> <%= @userId.first_name + " " + @userId.last_name %>  </h3><a href="/user/edit_profile/"> Edit profile </a> </div>
 
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link " href="/admin/home"> Home </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="/admin/manage_admins">Manage Admins </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/admin/manage_rooms"> Manage Rooms </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/admin/manage_users">Manage Library Users</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/admin/manage_bookings">Manage Bookings</a>
-  </li>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link " href="/admin/home"> Home </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="/admin/manage_admins">Manage Admins </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/admin/manage_rooms"> Manage Rooms </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/admin/manage_users">Manage Library Users</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/admin/manage_bookings">Manage Bookings</a>
+    </li>
 
-</ul>
+  </ul>
 
 
-<div class="filler"/>
+  <div class="filler"/>
 
-<h2> Admin Users </h2>
-<h3><a href="create_admin"> <i class="fa fa-plus-circle" aria-hidden="true"> </i> </a></h3>
+  <h2> Admin Users </h2>
+  <h3><a href="create_admin"> <i class="fa fa-plus-circle" aria-hidden="true"> </i> </a></h3>
 
-<table class="table tablestriped">
-  <thead>
+  <table class="table tablestriped">
+    <thead>
 
-  <th class="table-info"> EmailId</th>
-  <th class="table-info"> First Name</th>
-  <th class="table-info"> Last Name</th>
-  <th class="table-info">Action</th>
-  </thead>
+    <th class="table-info"> EmailId</th>
+    <th class="table-info"> First Name</th>
+    <th class="table-info"> Last Name</th>
+    <th class="table-info">Action</th>
+    </thead>
 
-  <tbody>
-  <% @admins.each do |a| %>
-      <tr>
-        <td> <%= a.emailId %>
-          <% if a.is_preconfigured %> *
-          <% end %></td>
-        <td> <%= a.first_name %></td>
-        <td> <%= a.last_name %> </td>
-        <td>
-          <% if a.is_preconfigured == false %>
-              <a href="edit_admin/<%= a.id %>"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a><br>
-          <% end %>
-          <% if session[:user] != a.emailId && a.is_preconfigured == false %>
-              <a href="delete_admin/<%= a.id %>"> <i class="fa fa-times" aria-hidden="true"></i></a>
-          <% end %>
-        </td>
-      </tr>
+    <tbody>
+    <% @admins.each do |a| %>
+        <tr>
+          <td> <%= a.emailId %>
+            <% if a.is_preconfigured %> *
+            <% end %></td>
+          <td> <%= a.first_name %></td>
+          <td> <%= a.last_name %> </td>
+          <td>
+            <% if a.is_preconfigured == false %>
+                <a href="edit_admin/<%= a.id %>"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a><br>
+            <% end %>
+            <% if session[:user] != a.emailId && a.is_preconfigured == false %>
+                <a href="delete_admin/<%= a.id %>"> <i class="fa fa-times" aria-hidden="true"></i></a>
+            <% end %>
+          </td>
+        </tr>
 
-  <% end %>
-  </tbody>
+    <% end %>
+    </tbody>
 
-</table>
+  </table>
 </div>

@@ -1,17 +1,38 @@
 require 'services/common.rb'
 
+# AdminController is the controller that implements admin functionality
+
 class AdminController < ApplicationController
   before_action :check_login
+
 
   private
   def check_login
     userId = UserService.find_user session[:user]
+    referrer = request.env['HTTP_REFERER']
     if userId == nil
       redirect_to controller: "library", action: "index"
+      return
+    end
+    redirect_loop = request.original_url.index("url_tampered")
+    puts "redirect_loop = #{redirect_loop}"
+    puts "referrer = #{referrer}"
+    if referrer == nil || referrer == ""
+      if redirect_loop == nil
+          redirect_to action: "url_tampered"
+          return
+      end
+      return
     end
   end
 
+
+
   public
+  def url_tampered
+    @userId = UserService.find_user session[:user]
+  end
+
   def home
     @userId = UserService.find_user session[:user]
     @ListOfRooms = RoomService.find_all();
@@ -128,6 +149,12 @@ class AdminController < ApplicationController
     }
   end
 
+  def delete_room_bookings
+    id = params[:id]
+    user = Room.find(id)
+    show_room_bookings
+  end
+
   def show_room_bookings
     @userId = UserService.find_user session[:user]
     room_id = params[:id]
@@ -141,7 +168,11 @@ class AdminController < ApplicationController
     booking = Booking.find(booking_id)
     room_id = booking.room.id
     BookingService.delete_booking booking
-    redirect_to action: "show_room_bookings" ,:id => room_id
+    referrer = request.env['HTTP_REFERER']
+    index = referrer.index("delete_room_bookings")
+    back_to = "show_room_bookings"
+    back_to = "delete_room_bookings" if !index.nil?
+    redirect_to action: back_to  ,:id => room_id
   end
 
   def create_room
@@ -206,6 +237,13 @@ class AdminController < ApplicationController
   def delete_a_room
     room_id = params[:id]
     room = Room.find(room_id)
+    bookings = BookingService.current_bookings_for_room(room)
+    if bookings.length > 0
+      redirect_to  action: "delete_room_bookings", :id => room_id
+      return
+    end
+    bookings = BookingService.all_bookings_for_room(room)
+    bookings.each {|b| Booking.destroy(b.id)}
     Room.destroy(room_id)
     redirect_to action: "manage_rooms"
   end
@@ -215,6 +253,7 @@ class AdminController < ApplicationController
     @users = UserService.all_library_users
     flash.delete("error")
   end
+
   def new_user
     emailId = params[:id]
     password = params[:password]
@@ -251,11 +290,23 @@ class AdminController < ApplicationController
   end
 
   def delete_user
-
     id = params[:id]
     user = User.find(id)
+    bookings = BookingService.current_bookings_for_user(user)
+    if bookings.length > 0
+      redirect_to action: "delete_user_bookings", :id => id
+      return
+    end
+    bookings = BookingService.all_bookings_for_user(user)
+    bookings.each {|b| Booking.destroy(b.id)}
     UserService.delete_user user
     redirect_to  action: "manage_users"
+  end
+
+  def delete_user_bookings
+    id = params[:id]
+    user = User.find(id)
+    show_user_bookings
   end
 
   def show_user_bookings
@@ -264,8 +315,20 @@ class AdminController < ApplicationController
     @user = User.find(id)
     @bookings = BookingService.all_bookings_for_user(@user)
     @util = Util.new
-
   end
+
+  def delete_a_user_booking
+    id = params[:id]
+    booking = Booking.find(id)
+    user_id = booking.user.id
+    BookingService.delete_booking(booking) if booking != nil
+    referrer = request.env['HTTP_REFERER']
+    index = referrer.index("delete_user_bookings")
+    back_to = "show_user_bookings"
+    back_to = "delete_user_bookings" if !index.nil?
+    redirect_to action: back_to,  :id => user_id
+  end
+
 
   def delete_booking
     id = params[:id]
@@ -278,7 +341,7 @@ class AdminController < ApplicationController
     @userId = UserService.find_user session[:user]
     time_slot = params[:id]
     booking_details = time_slot.split(":")
-    @room = RoomService.find(booking_details[0])
+    @room = Room.find(booking_details[0])
     @day = booking_details[1]
     @from = booking_details[2]
     @users = UserService.all_library_users
@@ -298,7 +361,7 @@ class AdminController < ApplicationController
     @booking = BookingService.create_booking(@room, @day, @from, @to, User.find(userId),attendees,true)
     if (attendees != "")
       puts "sent email to #{attendees}"
-      LibraryMailer.send_email(attendees,@booking).deliver
+      LibraryMailer.send_email(attendees,@booking,User.find(userId)).deliver
     end
     redirect_to  action: "manage_bookings"
   end
@@ -314,17 +377,16 @@ class AdminController < ApplicationController
       rooms = RoomService.find_all_in_building(b)
       @RoomList << [b, rooms]
     }
-
+    @num_users = UserService.all_library_users.length
     # Create a booking list, which is a hash. The key has booking time and the value is booking
     @RoomList.each {|item|
       item[1].each {|room|
         bookings = BookingService.all_bookings_for_room(room)
         bookings.each {|booking|
-        @BookingList["#{room.name}:#{booking.day}:#{booking.start_time}"] = booking
+        @BookingList["#{room.id}:#{booking.day}:#{booking.start_time}"] = booking
         }
       }
     }
   end
-
 
 end
