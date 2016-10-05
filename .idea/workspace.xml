@@ -6,36 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17d69e2b-d69d-4bac-881e-79a21a75db5c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/library.iml" afterPath="$PROJECT_DIR$/.idea/library.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/admin_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/admin_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/library_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/library_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/user_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/user_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/mailers/library_mailer.rb" afterPath="$PROJECT_DIR$/app/mailers/library_mailer.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/services/user_service.rb" afterPath="$PROJECT_DIR$/app/models/services/user_service.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/create_booking.html.erb" afterPath="$PROJECT_DIR$/app/views/admin/create_booking.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/home.html.erb" afterPath="$PROJECT_DIR$/app/views/admin/home.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/manage_admins.html.erb" afterPath="$PROJECT_DIR$/app/views/admin/manage_admins.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/manage_bookings.html.erb" afterPath="$PROJECT_DIR$/app/views/admin/manage_bookings.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/manage_rooms.html.erb" afterPath="$PROJECT_DIR$/app/views/admin/manage_rooms.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/manage_users.html.erb" afterPath="$PROJECT_DIR$/app/views/admin/manage_users.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/show_room_bookings.html.erb" afterPath="$PROJECT_DIR$/app/views/admin/show_room_bookings.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/show_user_bookings.html.erb" afterPath="$PROJECT_DIR$/app/views/admin/show_user_bookings.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/library_mailer/send_email.html.erb" afterPath="$PROJECT_DIR$/app/views/library_mailer/send_email.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/user/create_booking.html.erb" afterPath="$PROJECT_DIR$/app/views/user/create_booking.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/user/home.html.erb" afterPath="$PROJECT_DIR$/app/views/user/home.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/user/manage_bookings.html.erb" afterPath="$PROJECT_DIR$/app/views/user/manage_bookings.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/user/new_booking.html.erb" afterPath="$PROJECT_DIR$/app/views/user/new_booking.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/user/search.html.erb" afterPath="$PROJECT_DIR$/app/views/user/search.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/application.rb" afterPath="$PROJECT_DIR$/config/application.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/database.yml" afterPath="$PROJECT_DIR$/config/database.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/development.rb" afterPath="$PROJECT_DIR$/config/environments/development.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/controllers/library_controller_controller_test.rb" afterPath="$PROJECT_DIR$/test/controllers/library_controller_controller_test.rb" />
     </list>
     <ignored path="library.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -98,7 +69,18 @@
             <state relative-caret-position="894">
               <caret line="86" column="8" selection-start-line="86" selection-start-column="8" selection-end-line="86" selection-end-column="8" />
               <folding>
+                <marker date="1475698350155" expanded="true" signature="386:829" ph="..." />
+                <marker date="1475698350155" expanded="true" signature="412:477" ph="..." />
+                <marker date="1475698350155" expanded="true" signature="503:578" ph="..." />
+                <marker date="1475698350155" expanded="true" signature="604:709" ph="..." />
+                <marker date="1475698350155" expanded="true" signature="735:820" ph="..." />
+                <marker date="1475698350155" expanded="true" signature="843:887" ph="..." />
+                <marker date="1475698350155" expanded="true" signature="852:882" ph="..." />
+                <marker date="1475698350155" expanded="true" signature="919:1243" ph="..." />
+                <marker date="1475698350155" expanded="true" signature="975:1230" ph="do ... end" />
+                <marker date="1475698350155" expanded="true" signature="1013:1220" ph="..." />
                 <marker date="1475698350155" expanded="true" signature="1023:1209" ph="&lt;%=...%&gt;" />
+                <marker date="1475698350155" expanded="true" signature="1027:1206" ph="case ... end" />
               </folding>
             </state>
           </provider>
@@ -114,11 +96,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="library_controller_controller_test.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="library_controller_controller_test.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/controllers/library_controller_controller_test.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
               <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.html.erb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/admin/home.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="28" column="2" selection-start-line="28" selection-start-column="2" selection-end-line="28" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -184,7 +176,6 @@
         <option value="$PROJECT_DIR$/app/views/admin/delete_user_bookings.html.erb" />
         <option value="$PROJECT_DIR$/app/views/admin/delete_room_bookings.html.erb" />
         <option value="$PROJECT_DIR$/app/views/admin/manage_admins.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/admin/home.html.erb" />
         <option value="$PROJECT_DIR$/app/views/admin/manage_rooms.html.erb" />
         <option value="$PROJECT_DIR$/app/views/admin/manage_users.html.erb" />
         <option value="$PROJECT_DIR$/app/views/admin/show_room_bookings.html.erb" />
@@ -197,6 +188,7 @@
         <option value="$PROJECT_DIR$/app/views/user/create_booking.html.erb" />
         <option value="$PROJECT_DIR$/app/models/services/user_service.rb" />
         <option value="$PROJECT_DIR$/test/controllers/library_controller_controller_test.rb" />
+        <option value="$PROJECT_DIR$/app/views/admin/home.html.erb" />
       </list>
     </option>
   </component>
@@ -491,6 +483,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -594,7 +608,7 @@
       <recent name="$PROJECT_DIR$/app/models/services" />
     </key>
   </component>
-  <component name="RunManager" selected="Rake.db:seed: library">
+  <component name="RunManager" selected="Test::Unit/Shoulda/Minitest.Run test 'room_type_test': library">
     <configuration default="false" name="Run test 'user_test': library" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest" temporary="true">
       <predefined_log_file id="RUBY_TESTUNIT" enabled="true" />
       <module name="library" />
@@ -952,7 +966,7 @@
       <workItem from="1474689750258" duration="76730000" />
       <workItem from="1475069557188" duration="11650000" />
       <workItem from="1475644270071" duration="9334000" />
-      <workItem from="1475696790114" duration="2023000" />
+      <workItem from="1475696790114" duration="2633000" />
     </task>
     <servers />
   </component>
@@ -989,7 +1003,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163104000" />
+    <option name="totallyTimeSpent" value="163714000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="992" y="24" width="927" height="1056" extended-state="4" />
@@ -1228,14 +1242,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/home.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin/manage_admins.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1345,7 +1351,18 @@
         <state relative-caret-position="894">
           <caret line="86" column="8" selection-start-line="86" selection-start-column="8" selection-end-line="86" selection-end-column="8" />
           <folding>
+            <marker date="1475698350155" expanded="true" signature="386:829" ph="..." />
+            <marker date="1475698350155" expanded="true" signature="412:477" ph="..." />
+            <marker date="1475698350155" expanded="true" signature="503:578" ph="..." />
+            <marker date="1475698350155" expanded="true" signature="604:709" ph="..." />
+            <marker date="1475698350155" expanded="true" signature="735:820" ph="..." />
+            <marker date="1475698350155" expanded="true" signature="843:887" ph="..." />
+            <marker date="1475698350155" expanded="true" signature="852:882" ph="..." />
+            <marker date="1475698350155" expanded="true" signature="919:1243" ph="..." />
+            <marker date="1475698350155" expanded="true" signature="975:1230" ph="do ... end" />
+            <marker date="1475698350155" expanded="true" signature="1013:1220" ph="..." />
             <marker date="1475698350155" expanded="true" signature="1023:1209" ph="&lt;%=...%&gt;" />
+            <marker date="1475698350155" expanded="true" signature="1027:1206" ph="case ... end" />
           </folding>
         </state>
       </provider>
@@ -1362,6 +1379,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/home.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="2" selection-start-line="28" selection-start-column="2" selection-end-line="28" selection-end-column="2" />
           <folding />
         </state>
       </provider>
